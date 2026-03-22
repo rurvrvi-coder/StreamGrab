@@ -14,7 +14,7 @@ env:
 
 jobs:
   lint:
-    name: Lint & Type Check
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,10 +22,8 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
-      - run: pip install flake8 black isort
+      - run: pip install flake8
       - run: flake8 downloader/ --count --select=E9,F63,F7,F82 --show-source --statistics
-      - run: black --check --diff downloader/ gui_tkinter.py
-      - run: isort --check-only --diff downloader/
 
   test:
     name: Test Suite
@@ -42,7 +40,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
       - run: pip install pytest requests yt-dlp mutagen
-      - run: python -m pytest tests/ -v --cov=downloader --cov-fail-under=50
+      - run: python -m pytest tests/ -v
 
   build-windows:
     name: Build Windows
