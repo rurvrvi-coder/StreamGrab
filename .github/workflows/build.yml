@@ -56,9 +56,8 @@ jobs:
       - run: pip install -r requirements.txt pyinstaller
       - run: New-Item -ItemType Directory -Force -Path resources
       - run: pyinstaller StreamGrab.spec --clean --noconfirm
-      - run: pyinstaller StreamGrab-onefile.spec --onefile --noconfirm
       - run: New-Item -ItemType Directory -Force -Path output
-      - run: Copy-Item -Recurse dist/StreamGrab output/ ; Copy-Item dist/StreamGrab.exe output/
+      - run: Copy-Item -Recurse dist/StreamGrab output/
       - uses: actions/upload-artifact@v4
         with:
           name: StreamGrab-windows
@@ -98,7 +97,7 @@ jobs:
       - run: pip install -r requirements.txt pyinstaller
       - run: mkdir -p resources
       - run: pyinstaller StreamGrab.spec --clean --noconfirm
-      - run: mkdir -p output && cp -r dist/StreamGrab.app output/
+      - run: mkdir -p output && cp -r dist/StreamGrab output/
       - uses: actions/upload-artifact@v4
         with:
           name: StreamGrab-macos
