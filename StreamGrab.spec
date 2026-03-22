@@ -1,7 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 """
-PyInstaller Spec File для StreamGrab - Onefile Portable Version
-Creates a single .exe file that runs without installation
+PyInstaller Spec File для StreamGrab
 """
 
 import sys
@@ -10,7 +9,7 @@ from pathlib import Path
 
 block_cipher = None
 
-project_root = Path(SPECFILE).parent if SPECFILE else Path.cwd()
+project_root = Path(__file__).parent
 icon_path = project_root / "resources" / "icon.ico"
 
 a = Analysis(

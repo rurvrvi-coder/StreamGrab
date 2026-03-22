@@ -10,7 +10,7 @@ from pathlib import Path
 
 block_cipher = None
 
-project_root = Path(SPECFILE).parent if SPECFILE else Path.cwd()
+project_root = Path(__file__).parent
 icon_path = project_root / "resources" / "icon.ico"
 
 a = Analysis(
