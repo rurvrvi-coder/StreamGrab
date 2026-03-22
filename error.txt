@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "gui_tkinter.py", line 1006, in <module>
+  File "gui_tkinter.py", line 1001, in main
+  File "gui_tkinter.py", line 624, in __init__
+NameError: name 'get_settings_manager' is not defined

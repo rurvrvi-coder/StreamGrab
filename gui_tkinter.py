@@ -24,6 +24,7 @@ from downloader.settings import (
     SettingsManager,
     get_settings,
     save_settings,
+    get_settings_manager,
     AppSettings,
 )
 
